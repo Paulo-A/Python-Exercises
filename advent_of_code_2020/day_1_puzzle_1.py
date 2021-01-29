@@ -25,10 +25,13 @@ In this list, the two entries that sum to 2020 are 1721 and 299. Multiplying the
 Of course, your expense report is much larger. Find the two entries that sum to 2020; what do you get if you multiply them together?
 """
 
+import csv
+
 TOTAL_TO_COMPARE = 2020
 
-def evaluate_expense_report(expense_report):
-    cleaned_expense_report = clean_expense_report(expense_report)
+def evaluate_expense_report(expense_report_filename):
+    expense_report_data = read_expense_report(expense_report_filename)
+    cleaned_expense_report = clean_expense_report(expense_report_data)
 
     for i in range(len(cleaned_expense_report)):
         value_to_find = TOTAL_TO_COMPARE-cleaned_expense_report[i]
@@ -37,11 +40,18 @@ def evaluate_expense_report(expense_report):
                 return cleaned_expense_report[i]*cleaned_expense_report[j]
             else:
                 pass
-    return null
+    return None
 
 def clean_expense_report(expense_report):
     return list(filter(lambda value: value<=TOTAL_TO_COMPARE, sorted(expense_report,reverse = True)))
 
+def read_expense_report(expense_report_filename):
+    data = []
+    with open(expense_report_filename, newline='') as f:
+        reader = csv.reader(f)
+        for line in reader:
+            data.append(int(line[0]))
+    return data
+
 if __name__ == '__main__':
-    a=[1721,979,366,299,675,1456]
-    print(evaluate_expense_report(a))
+    print(evaluate_expense_report('example.csv'))
