@@ -33,11 +33,11 @@ def evaluate_expense_report(expense_report_filename):
     expense_report_data = read_expense_report(expense_report_filename)
     cleaned_expense_report = clean_expense_report(expense_report_data)
 
-    for i in range(len(cleaned_expense_report)):
-        value_to_find = TOTAL_TO_COMPARE-cleaned_expense_report[i]
-        for j in range(i, len(cleaned_expense_report)):
-            if cleaned_expense_report[j] == value_to_find:
-                return cleaned_expense_report[i]*cleaned_expense_report[j]
+    for i, value_1 in enumerate(cleaned_expense_report):
+        value_to_find = TOTAL_TO_COMPARE-value_1
+        for j, value_2 in enumerate(cleaned_expense_report[i+1:]):
+            if value_2 == value_to_find:
+                return value_1*value_2
     return None
 
 def clean_expense_report(expense_report):
