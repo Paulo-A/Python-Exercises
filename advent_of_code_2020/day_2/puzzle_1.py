@@ -50,8 +50,6 @@ class Database(list):
         for row in self.data:
             if row[0] <= row[3].count(row[2]) <= row[1]:
                 number_of_occurences += 1
-            else:
-                pass
         return number_of_occurences
 
 if __name__ == '__main__':
