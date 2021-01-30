@@ -43,12 +43,10 @@ class Database(list):
     def evaluate_data(self):
         number_of_occurences = 0
         for row in self.data:
-            if row[3][row[0]-1] == row[2] and row[3][row[1]-1] == row[2]:
-                pass
-            elif row[3][row[0]-1] == row[2] or row[3][row[1]-1] == row[2]:
+            if (row[3][row[0]-1] == row[2]) != (row[3][row[1]-1] == row[2]):
                 number_of_occurences += 1
         return number_of_occurences
 
 if __name__ == '__main__':
-    database = Database('example.csv')
+    database = Database('example_1.csv')
     print(database.evaluate_data())
