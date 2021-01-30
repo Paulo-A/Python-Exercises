@@ -22,8 +22,6 @@ def evaluate_expense_report(expense_report_filename):
             for k in range(j, len(cleaned_expense_report)):
                 if cleaned_expense_report[k] == value_to_find:
                     return cleaned_expense_report[i]*cleaned_expense_report[j]*cleaned_expense_report[k]
-                else:
-                    pass
     return None
 
 def clean_expense_report(expense_report):
