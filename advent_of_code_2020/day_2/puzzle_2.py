@@ -48,5 +48,5 @@ class Database(list):
         return number_of_occurences
 
 if __name__ == '__main__':
-    database = Database('example_1.csv')
+    database = Database('example.csv')
     print(database.evaluate_data())
