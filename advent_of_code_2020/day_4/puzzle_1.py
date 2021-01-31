@@ -85,4 +85,4 @@ def check_keys(passport, keys):
     return all_keys_found
 
 if __name__ == '__main__':
-    evaluate_passports('example_1.txt')
+    evaluate_passports('example.txt')
